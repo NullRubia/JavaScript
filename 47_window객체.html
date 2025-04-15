@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function hello() {
+        alert("안녕하세요");
+      }
+      function clearInterVal() {
+        const st = setTimeout(hello, 4000);
+        clearTimeout(st);
+      }
+
+      const si = setInterval(hello, 3000);
+
+      const clearInter = function () {
+        clearInterVal(si);
+        alert("Hello 함수가 중지됨");
+      };
+    </script>
+    <button onclick="clearInter">중지</button>
+  </body>
+</html>
