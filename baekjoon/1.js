@@ -1,25 +1,18 @@
 //const input = fs.readFileSync("input.txt").toString().split(" ");
 //const input = fs.readFileSync("/dev/stdin").toString().split(" ");
 const fs = require("fs");
-const input = fs.readFileSync("input.txt").toString().split("\n").map(Number);
-let a = parseInt(input[0]);
-let b = parseInt(input[1]);
-let b1 = b % 10;
-let b2 = parseInt((b % 100) / 10);
-let b3 = parseInt(b / 100);
+const input = fs.readFileSync("input.txt").toString().split("\n");
+let T = parseInt(input[0]);
+let L = [];
+L[1] = 1;
+L[2] = 2;
+L[3] = 4;
 
-console.log("|\\_/|");
-console.log("|q p|   /}");
-console.log('( 0 )"""\\');
-console.log('|"^"`    |');
-console.log("||_/=\\\\__|");
+for (i = 4; i < 11; i++) {
+  L[i] = L[i - 1] + L[i - 2] + L[i - 3];
+}
 
-console.log("-------------------------------");
-console.log("|\\_/|");
-console.log("|q p|   /}");
-console.log('( 0 )"""\\');
-console.log('|"^"`    |');
-console.log("||_/=\\\\__|");
-
-console.log("-------------------------------");
-console.log('|\\_/|\n|q p|   /}\n( 0 )"""\\\n|"^"`    |\n||_/=\\\\__|');
+for (j = 1; j < T + 1; j++) {
+  N = parseInt(input[j]);
+  console.log(L[N]);
+}
