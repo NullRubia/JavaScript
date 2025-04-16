@@ -26,12 +26,14 @@
       function changeText() {
         document.getElementById("greeting").innerText = "반가워요!";
       }
+      ////////////////////////////////////////////////////
       function highlightItems() {
         const items = document.getElementsByClassName("item");
         for (let i = 0; i < items.length; i++) {
           items[i].style.color = "red";
         }
       }
+      ////////////////////////////////////////////////////
       function updateFirst() {
         // document.querySelector(".desc").innerText = "바뀐 첫 문장!";
         const qs = document.querySelectorAll(".desc");
@@ -39,14 +41,17 @@
           qs[i].innerText = "바뀐 첫 문장!";
         }
       }
+      ////////////////////////////////////////////////////
       function addItem() {
         const newItem = document.createElement("li");
         newItem.innerHTML = "<a href='http://www.naver.com'>네이버</a>";
         document.getElementById("list").appendChild(newItem);
       }
+      ////////////////////////////////////////////////////
       function changeImage() {
         document.getElementById("image").setAttribute("src", "./image/cat.png");
       }
+      ////////////////////////////////////////////////////
       function removeText() {
         document.getElementById("greeting").remove();
       }

@@ -18,6 +18,7 @@
             "이 브라우저는 위치 정보를 지원하지 않습니다.";
         }
       }
+      ////////////////////////////////////////////////////
 
       function showPosition(position) {
         const latitude = position.coords.latitude;
@@ -26,6 +27,7 @@
           "locationInfo"
         ).innerText = `위도: ${latitude}, 경도: ${longitude}`;
       }
+      ////////////////////////////////////////////////////
 
       function showError(error) {
         switch (error.code) {

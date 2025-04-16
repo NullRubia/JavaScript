@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>node</title>
+  </head>
+  <body>
+    <div id="box"></div>
+    <ul id="list">
+      <li id="item1">1 번째 항목</li>
+      <li id="item1">2 번째 항목</li>
+      <li id="item1">3 번째 항목</li>
+      <li id="item1">4 번째 항목</li>
+      <li id="item1">5 번째 항목</li>
+    </ul>
+    <div id="wrapper">
+      <p id="old">기존 문단</p>
+    </div>
+    <button onclick="create_p()">새 문단 추가</button>
+    <button onclick="remove_li()">li삭제</button>
+    <button onclick="node_cg()">자식 노드 변경</button>
+    <button onclick="node_ps()">자식 노드 추가</button>
+    <button onclick="node_cp()">문단 노드 복사</button>
+    <script>
+      function create_p() {
+        const div = document.getElementById("box");
+        const p = document.createElement("p");
+        p.innerText = "새 문단 추가!";
+        div.appendChild(p);
+      }
+      ////////////////////////////////////////////////////
+      function remove_li() {
+        const ul = document.getElementById("list");
+        const li = document.getElementById("item1");
+        ul.removeChild(li); // li 제거
+      }
+      ////////////////////////////////////////////////////
+      function node_cg() {
+        const wrapper = document.getElementById("wrapper");
+        const oldNode = document.getElementById("old");
+
+        const newNode = document.createElement("p");
+        newNode.innerText = "새로운 문단입니다";
+
+        wrapper.replaceChild(newNode, oldNode);
+      }
+      ////////////////////////////////////////////////////
+      function node_ps() {
+        const ul = document.getElementById("list");
+        const newItem = document.createElement("li");
+        newItem.innerText = "사과";
+
+        const existingItem = ul.firstElementChild;
+        ul.insertBefore(newItem, existingItem); // 사과가 첫번째 노드 앞에 추가됨
+      }
+      ////////////////////////////////////////////////////
+      function node_cp() {
+        const original = document.getElementById("wrapper");
+        const clone = original.cloneNode(true); // false: 현제노드만 복사, true: 깊은 복사
+
+        document.body.appendChild(clone);
+      }
+    </script>
+  </body>
+</html>

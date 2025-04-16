@@ -21,10 +21,12 @@
         ss = date.getSeconds();
         console.log(`${yy}-${MM}-${dd} ${hh}:${mm}:${ss}`);
       }
+      ////////////////////////////////////////////////////
       let si;
       function startClock() {
         si = setInterval(makeClock, 1000);
       }
+      ////////////////////////////////////////////////////
       function stopClock() {
         clearInterval(si);
         console.log("종료되었음");
