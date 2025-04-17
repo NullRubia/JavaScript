@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Json</title>
+  </head>
+  <body>
+    <div id="info"></div>
+    <script>
+      const user = {
+        name: "김사과",
+        age: 20,
+        job: "프론트엔드 개발자",
+      };
+
+      const jsonStr = JSON.stringify(user);
+      //자바스크립트 객체를 Json형식을 가진 문자열로 변경
+      console.log(jsonStr); //{"name":"김사과","age":20}
+      ///////////////////////////////////////////////
+
+      const jsonStr2 = '{"name":"김사과","age":20,"job":"프론트엔드 개발자"}';
+      const userObj = JSON.parse(jsonStr2);
+      //Json형식을 가진 문자열을 자바스크립트의 객체로 변환
+      console.log(userObj.name); //김사과
+      console.log(userObj.age); //20
+      console.log(userObj.job); //프론트엔드 개발자
+      ///////////////////////////////////////////////
+
+      const container = document.getElementById("info");
+      container.innerHTML = `
+    <p>이름: ${user.name}</p>
+    <p>나이: ${user.age}</p>
+    <p>직업: ${user.job}</p>
+  `;
+      //Json 형태의 데이터를 웹에 출력
+      ///////////////////////////////////////////////
+    </script>
+  </body>
+</html>
