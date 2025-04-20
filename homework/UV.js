@@ -92,12 +92,21 @@ function moveMapByCityName(address) {
   });
 }
 
-window.onload = function () {
-  kakao.maps.load(function () {
-    map = new kakao.maps.Map(document.getElementById("map"), {
-      center: new kakao.maps.LatLng(37.566826, 126.9786567),
-      level: 9,
-    });
-    getUVIndex(); // 초기 로딩
+function initMap() {
+  map = new kakao.maps.Map(document.getElementById("map"), {
+    center: new kakao.maps.LatLng(37.566826, 126.9786567),
+    level: 9,
   });
-};
+  getUVIndex(); // 초기 로딩
+}
+if (window.kakao && kakao.maps && kakao.maps.load) {
+  kakao.maps.load(initMap);
+} else {
+  window.addEventListener("load", () => {
+    if (window.kakao && kakao.maps && kakao.maps.load) {
+      kakao.maps.load(initMap);
+    } else {
+      console.error("Kakao Maps SDK가 로드되지 않았습니다.");
+    }
+  });
+}
